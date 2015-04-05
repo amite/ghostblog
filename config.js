@@ -13,11 +13,16 @@ config = {
         url: 'http://ghost.codelove.in',
         mail: {},
         database: {
-            client: 'sqlite3',
-            connection: {
-                filename: path.join(__dirname, '/content/data/ghost.db')
-            },
+          client: 'mysql',
+          connection: {
+            host     : process.env.TATTWAM_DB_HOST,
+            user     : process.env.TATTWAM_DB_USER,
+            password : process.env.TATTWAM_DB_PASS,
+            database : process.env.TATTWAM_DB_NAME,
+            charset  : 'utf8',
             debug: true
+          },
+
         },
 
         server: {
